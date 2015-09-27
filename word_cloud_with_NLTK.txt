@@ -1,0 +1,17 @@
+seed = open(path and file name, 'r')
+text = seed.read()
+seed.close()
+
+tokens = nltk.word_tokenize(text) 
+good_word = []
+
+for word in tokens:
+    word = word.lower()
+    if word.isalpha(): 
+        good_word.append(word)
+
+# getting the count         
+count_word = nltk.FreqDist(good_word)
+for token in count_word:
+    print token, ':', count_word[token]
+	

@@ -1,0 +1,33 @@
+#Creating Bigram and triagram and count them
+
+tr -sc '[a-z][A-Z]' '[\012*]' < dates_in_may > main_file.txt
+tail --lines=+2  main_file.txt > main_file2.txt 
+tail --lines=+3  main_file.txt > main_file3.txt
+paste main_file.txt main_file2.txt main_file3.txt > trigram.txt
+cat trigram.txt | sort | uniq -c > trigram_count.txt
+sort trigram_count.txt -nr
+
+#order in reverse order
+
+tr -sc '[a-z][A-Z]' '[\012*]' < dates_in_may > rhyme_file.txt
+cat rhyme_file.txt | rev |sort -r | rev > reversed.txt
+
+
+# create a compressed file
+
+Example for Grep and their explanation 
+grep ’[A–Z]’ lines with an uppercase char
+grep ’ˆ[A–Z]’ lines starting with an uppercase char
+grep ’[A–Z]$’ lines ending with an uppercase char
+grep ’ˆ[A–Z]*$’ lines with all uppercase chars
+grep ’[aeiouAEIOU]’ lines with a vowel
+grep ’ˆ[aeiouAEIOU]’ lines starting with a vowel
+grep ’[aeiouAEIOU]$’ lines ending with a vowel
+
+# finding palindrome in Unix
+
+sort -u  file1.txt > file1sorted.txt
+rev < file1sorted.txt > file2sorted.txt
+paste file1sorted.txt file2sorted.txt | awk ’$1 == $2’	
+
+# use grep -i  '[ anything]'   # to ignore case 
